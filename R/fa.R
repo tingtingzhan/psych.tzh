@@ -58,15 +58,9 @@ plot_fa_ <- function(x, ...) {
 #' @export
 rmd_.fa <- function(x, xnm, ...) {
   
-  #h_ <- attr(x, which = 'fig.height', exact = TRUE) %||% 4
-  #w_ <- attr(x, which = 'fig.width', exact = TRUE) %||% 7
-  
-  #w <- ncol * w_
-  #h <- ceiling(length(x) / ncol) * h_
-  
   return(c(
     sprintf(fmt = 'Factor analysis on `%s` is performed by <u>**`R`**</u> package <u>**`psych`**</u>.', (as.list(x$Call)$r) |> deparse1()),
-    #sprintf(fmt = '```{r fig.height = %.1f, fig.width = %.1f}', h, w), 
+    '\n',
     '```{r}', # try automatic height and weight?
     sprintf(fmt = 'plot_fa_(%s)', xnm), # not sure how to put in `...`
     '```',
