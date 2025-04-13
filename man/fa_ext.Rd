@@ -3,12 +3,12 @@
 \name{fa_ext}
 \alias{fa_ext}
 \alias{plot_fa_}
-\alias{rmd_.fa}
-\title{S3 Methods for \link[psych]{fa}}
+\alias{md_.fa}
+\title{Extensions for \link[psych]{fa} object}
 \usage{
 plot_fa_(x, ...)
 
-rmd_.fa(x, xnm, ...)
+md_.fa(x, xnm, ...)
 }
 \arguments{
 \item{x}{an \link[psych]{fa} object}
@@ -18,7 +18,7 @@ rmd_.fa(x, xnm, ...)
 \item{xnm}{..}
 }
 \description{
-S3 Methods for \link[psych]{fa}
+Extensions for \link[psych]{fa} object
 }
 \examples{
 library(psych)

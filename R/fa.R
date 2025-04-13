@@ -1,5 +1,5 @@
 
-#' @title S3 Methods for \link[psych]{fa}
+#' @title Extensions for \link[psych]{fa} object
 #' 
 #' @param x an \link[psych]{fa} object
 #' 
@@ -56,7 +56,7 @@ plot_fa_ <- function(x, ...) {
 
 #' @rdname fa_ext
 #' @export
-rmd_.fa <- function(x, xnm, ...) {
+md_.fa <- function(x, xnm, ...) {
   
   return(c(
     sprintf(fmt = 'Factor analysis on `%s` is performed by <u>**`R`**</u> package <u>**`psych`**</u>.', (as.list(x$Call)$r) |> deparse1()),
