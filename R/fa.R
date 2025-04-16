@@ -16,7 +16,7 @@
 #' m1a = Harman74.cor$cov |> 
 #'  cov2cor() |>
 #'  fa(nfactors = 2L, fm = 'pa', rotate = 'varimax')
-#' # names(which(!mapply(ThomasJeffersonUniv::relaxed_identical, m1, m1a)))
+#' # names(which(!mapply(adv.tzh::relaxed_identical, m1, m1a)))
 #' 
 #' m1 |> fa.plot() # ?psych::plot.psych; ?psych::fa.plot
 #' 
