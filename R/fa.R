@@ -62,7 +62,7 @@ md_.fa <- function(x, xnm, ...) {
     sprintf(fmt = 'Factor analysis on `%s` is performed by <u>**`R`**</u> package <u>**`psych`**</u>.', (as.list(x$Call)$r) |> deparse1()),
     '\n',
     '```{r}', # try automatic height and weight?
-    sprintf(fmt = 'plot_fa_(%s)', xnm), # not sure how to put in `...`
+    sprintf(fmt = 'psych.tzh::plot_fa_(%s)', xnm), # not sure how to put in `...`
     '```',
     '<any-text>'
   ))
