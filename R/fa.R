@@ -26,6 +26,11 @@
 #' m2 |> fa.plot() 
 #' m2 |> plot_fa_()
 #'  
+#' library(rmd.tzh); list(
+#'  'fa1' = m1,
+#'  'fa2' = m2
+#' ) |> render_(file = 'fa')
+#' 
 #' @keywords internal
 #' @name fa_ext
 #' @importFrom psych fa.plot
@@ -55,11 +60,13 @@ plot_fa_ <- function(x, ...) {
 }
 
 #' @rdname fa_ext
+#' @importFrom rmd.tzh md_
+#' @export md_.fa
 #' @export
 md_.fa <- function(x, xnm, ...) {
   
   return(c(
-    sprintf(fmt = 'Factor analysis on `%s` is performed by <u>**`R`**</u> package <u>**`psych`**</u>.', (as.list(x$Call)$r) |> deparse1()),
+    sprintf(fmt = '[Factor analysis](https://en.wikipedia.org/wiki/Factor_analysis) on `%s` is performed by <u>**`R`**</u> package <u>**`psych`**</u>.', (as.list(x$Call)$r) |> deparse1()),
     '\n',
     '```{r}', # try automatic height and weight?
     sprintf(fmt = 'psych.tzh::plot_fa_(%s)', xnm), # not sure how to put in `...`

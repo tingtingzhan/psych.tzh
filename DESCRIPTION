@@ -11,6 +11,6 @@ Authors@R: c(person(given = "Tingting", family = "Zhan", role
        c("tingtingzhan@gmail.com")))
 Language: en-US
 Roxygen: list(markdown = TRUE)
-Depends: R (>= 4.4.0)
-Imports: psych (== 2.5.3)
+Depends: R (>= 4.5.0)
+Imports: psych (== 2.5.3), rmd.tzh
 RoxygenNote: 7.3.2

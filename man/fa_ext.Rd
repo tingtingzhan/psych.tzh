@@ -8,7 +8,7 @@
 \usage{
 plot_fa_(x, ...)
 
-md_.fa(x, xnm, ...)
+\method{md_}{fa}(x, xnm, ...)
 }
 \arguments{
 \item{x}{an \link[psych]{fa} object}
@@ -39,5 +39,10 @@ m2 = swiss |>
 m2 |> fa.plot() 
 m2 |> plot_fa_()
  
+library(rmd.tzh); list(
+ 'fa1' = m1,
+ 'fa2' = m2
+) |> render_(file = 'fa')
+
 }
 \keyword{internal}
