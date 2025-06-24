@@ -1,9 +1,7 @@
 
-#' @title Extensions for \link[psych]{fa} object
+#' @title Alternative Plot for \link[psych]{fa} Object
 #' 
 #' @param x an \link[psych]{fa} object
-#' 
-#' @param xnm ..
 #' 
 #' @param ... ..
 #' 
@@ -19,6 +17,7 @@
 #' # names(which(!mapply(adv.tzh::relaxed_identical, m1, m1a)))
 #' 
 #' m1 |> fa.plot() # ?psych::plot.psych; ?psych::fa.plot
+#' m1 |> plot_fa_()
 #' 
 #' m2 = swiss |>
 #'  cov() |> 
@@ -32,7 +31,6 @@
 #' ) |> render_(file = 'fa')
 #' 
 #' @keywords internal
-#' @name fa_ext
 #' @importFrom psych fa.plot
 #' @export  
 plot_fa_ <- function(x, ...) {
@@ -59,20 +57,41 @@ plot_fa_ <- function(x, ...) {
   
 }
 
-#' @rdname fa_ext
+
+#' @title Markdown Lines for \link[psych]{fa} Object
+#' 
+#' @param x an \link[psych]{fa} object
+#' 
+#' @param xnm ..
+#' 
+#' @param ... ..
+#' 
 #' @importFrom rmd.tzh md_
+#' @importFrom utils bibentry
 #' @export md_.fa
 #' @export
 md_.fa <- function(x, xnm, ...) {
   
-  return(c(
-    sprintf(fmt = '[Factor analysis](https://en.wikipedia.org/wiki/Factor_analysis) on `%s` is performed by <u>**`R`**</u> package <u>**`psych`**</u>.', (as.list(x$Call)$r) |> deparse1()),
+  ret <- c(
+    sprintf(fmt = '[Factor analysis](https://en.wikipedia.org/wiki/Factor_analysis) [@Gorsuch83] on `%s` is performed by <u>**`R`**</u> package <u>**`psych`**</u>.', (as.list(x$Call)$r) |> deparse1()),
     '\n',
     '```{r}', # try automatic height and weight?
     sprintf(fmt = 'psych.tzh::plot_fa_(%s)', xnm), # not sure how to put in `...`
     '```',
     '<any-text>'
-  ))
+  )
+  
+  attr(ret, which = 'bibentry') <- bibentry(
+    bibtype = 'book', key = 'Gorsuch83', 
+    title = 'Factor Analysis',
+    author = 'Richard L. Gorsuch',
+    year = '1983',
+    edition = '2nd',
+    publisher = 'Psychology Press',
+    doi = '10.4324/9780203781098'
+  )
+  
+  return(ret)
   
 }
 
