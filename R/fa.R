@@ -78,7 +78,8 @@ md_.fa <- function(x, xnm, ...) {
     '```{r}', # try automatic height and weight?
     sprintf(fmt = 'psych.tzh::plot_fa_(%s)', xnm), # not sure how to put in `...`
     '```',
-    '<any-text>'
+    '<any-text>',
+    '\n\n'
   )
   
   attr(ret, which = 'bibentry') <- bibentry(
