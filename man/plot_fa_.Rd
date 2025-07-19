@@ -15,9 +15,7 @@ plot_fa_(x, ...)
 Alternative Plot for \link[psych]{fa} Object
 }
 \examples{
-library(psych)
 # ?psych::fa
-
 m1 = Harman74.cor$cov |> 
  fa(nfactors = 2L, fm = 'pa', rotate = 'varimax')
 m1a = Harman74.cor$cov |> 
