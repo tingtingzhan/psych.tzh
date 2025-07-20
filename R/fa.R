@@ -64,33 +64,34 @@ plot_fa_ <- function(x, ...) {
 #' 
 #' @param ... ..
 #' 
+#' @keywords internal
 #' @importFrom rmd.tzh md_
+#' @importFrom methods new
 #' @importFrom utils bibentry
 #' @export md_.fa
 #' @export
 md_.fa <- function(x, xnm, ...) {
   
-  ret <- c(
-    sprintf(fmt = '[Factor analysis](https://en.wikipedia.org/wiki/Factor_analysis) [@Gorsuch83] on `%s` is performed by <u>**`R`**</u> package <u>**`psych`**</u>.', (as.list(x$Call)$r) |> deparse1()),
-    '\n',
+  z1 <- (as.list(x$Call)$r) |> 
+    deparse1() |>
+    sprintf(fmt = '[Factor analysis](https://en.wikipedia.org/wiki/Factor_analysis) [@Gorsuch83] on `%s` is performed by <u>**`R`**</u> package <u>**`psych`**</u>.') |>
+    new(Class = 'md_lines', bibentry = bibentry(
+      bibtype = 'book', key = 'Gorsuch83', 
+      title = 'Factor Analysis',
+      author = 'Richard L. Gorsuch',
+      year = '1983',
+      edition = '2nd',
+      publisher = 'Psychology Press',
+      doi = '10.4324/9780203781098'
+    ))
+  
+  z2 <- c(
     '```{r}', # try automatic height and weight?
     sprintf(fmt = 'psych.tzh::plot_fa_(%s)', xnm), # not sure how to put in `...`
-    '```',
-    '<any-text>',
-    '\n\n'
-  )
+    '```'
+  ) |> new(Class = 'md_lines')
   
-  attr(ret, which = 'bibentry') <- bibentry(
-    bibtype = 'book', key = 'Gorsuch83', 
-    title = 'Factor Analysis',
-    author = 'Richard L. Gorsuch',
-    year = '1983',
-    edition = '2nd',
-    publisher = 'Psychology Press',
-    doi = '10.4324/9780203781098'
-  )
-  
-  return(ret)
+  c(z1, z2) # ?rmd.tzh::c.md_lines
   
 }
 
