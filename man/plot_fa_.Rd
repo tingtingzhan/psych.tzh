@@ -32,10 +32,10 @@ m2 = swiss |>
 m2 |> fa.plot() 
 m2 |> plot_fa_()
  
-library(rmd.tzh); list(
+list(
  'fa1' = m1,
  'fa2' = m2
-) |> render_(file = 'fa')
+) |> rmd.tzh::render_(file = 'fa')
 
 }
 \keyword{internal}
