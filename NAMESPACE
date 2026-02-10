@@ -3,7 +3,7 @@
 S3method(md_,fa)
 export(md_.fa)
 export(plot_fa_)
+importFrom(fastmd,md_)
 importFrom(methods,new)
 importFrom(psych,fa.plot)
-importFrom(rmd.tzh,md_)
 importFrom(utils,bibentry)

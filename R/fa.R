@@ -26,7 +26,7 @@
 #' list(
 #'  'fa1' = m1,
 #'  'fa2' = m2
-#' ) |> rmd.tzh::render_(file = 'fa')
+#' ) |> fastmd::render_(file = 'fa')
 #' 
 #' @keywords internal
 #' @importFrom psych fa.plot
@@ -65,7 +65,7 @@ plot_fa_ <- function(x, ...) {
 #' @param ... ..
 #' 
 #' @keywords internal
-#' @importFrom rmd.tzh md_
+#' @importFrom fastmd md_
 #' @importFrom methods new
 #' @importFrom utils bibentry
 #' @export md_.fa
@@ -91,7 +91,7 @@ md_.fa <- function(x, xnm, ...) {
     '```'
   ) |> new(Class = 'md_lines')
   
-  c(z1, z2) # ?rmd.tzh::c.md_lines
+  c(z1, z2) # ?fastmd::c.md_lines
   
 }
 
