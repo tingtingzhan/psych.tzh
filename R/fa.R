@@ -67,7 +67,6 @@ plot_fa_ <- function(x, ...) {
 #' @keywords internal
 #' @importFrom fastmd md_
 #' @importFrom methods new
-#' @importFrom utils bibentry
 #' @export md_.fa
 #' @export
 md_.fa <- function(x, xnm, ...) {
@@ -75,15 +74,7 @@ md_.fa <- function(x, xnm, ...) {
   z1 <- (as.list(x$Call)$r) |> 
     deparse1() |>
     sprintf(fmt = '[Factor analysis](https://en.wikipedia.org/wiki/Factor_analysis) [@Gorsuch83] on `%s` is performed by <u>**`R`**</u> package <u>**`psych`**</u>.') |>
-    new(Class = 'md_lines', bibentry = bibentry(
-      bibtype = 'book', key = 'Gorsuch83', 
-      title = 'Factor Analysis',
-      author = 'Richard L. Gorsuch',
-      year = '1983',
-      edition = '2nd',
-      publisher = 'Psychology Press',
-      doi = '10.4324/9780203781098'
-    ))
+    new(Class = 'md_lines', bibentry = .gorsuch83())
   
   z2 <- c(
     '```{r}', # try automatic height and weight?
