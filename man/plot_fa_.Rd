@@ -35,7 +35,7 @@ m2 |> plot_fa_()
 list(
  'fa1' = m1,
  'fa2' = m2
-) |> fastmd::render_(file = 'fa')
+) |> fastmd::render2html(file = 'fa')
 
 }
 \keyword{internal}
