@@ -5,7 +5,10 @@
 \alias{.gorsuch83}
 \title{bibs of package psych.tzh}
 \usage{
-.gorsuch83()
+.gorsuch83(key = "Gorsuch83", ...)
+}
+\arguments{
+\item{key, ...}{\link[utils]{bibentry}}
 }
 \description{
 bibs of package psych.tzh
