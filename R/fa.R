@@ -26,7 +26,7 @@
 #' list(
 #'  'fa1' = m1,
 #'  'fa2' = m2
-#' ) |> fastmd::render2html(file = 'fa')
+#' ) |> fastmd::render2html()
 #' 
 #' @keywords internal
 #' @importFrom psych fa.plot
