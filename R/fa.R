@@ -76,11 +76,9 @@ md_.fa <- function(x, xnm, ...) {
     sprintf(fmt = '[Factor analysis](https://en.wikipedia.org/wiki/Factor_analysis) [@Gorsuch83] on `%s` is performed by <u>**`R`**</u> package <u>**`psych`**</u>.') |>
     new(Class = 'md_lines', bibentry = .gorsuch83())
   
-  z2 <- c(
-    '```{r}', # try automatic height and weight?
-    sprintf(fmt = 'psych.tzh::plot_fa_(%s)', xnm), # not sure how to put in `...`
-    '```'
-  ) |> new(Class = 'md_lines')
+  z2 <- xnm |> 
+    sprintf(fmt = 'psych.tzh::plot_fa_(%s)') |> 
+    new(Class = 'md_lines', chunk.r = TRUE)
   
   c(z1, z2) # ?fastmd::c.md_lines
   
